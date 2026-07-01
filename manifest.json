@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "WA+",
+  "version": "1.0",
+  "description": "add more features to whatsapp.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

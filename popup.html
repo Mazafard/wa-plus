@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WA+</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="bento-item header-item">
+            <h2>WA+</h2>
+            <div id="status">Ready</div>
+        </header>
+        
+        <div class="bento-item action-item">
+            <button id="fetchBtn" class="glass-btn primary">Fetch Local Data</button>
+        </div>
+
+        <div class="bento-item list-container-item">
+            <ul id="resultsList" class="results-list">
+                <!-- JSON Items will be injected here -->
+            </ul>
+        </div>
+        
+        <footer class="bento-item footer-item">
+            <button id="downloadBtn" class="glass-btn secondary" disabled>Download CSV</button>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+// content.js is no longer needed because popup.js executes directly in the MAIN world.
