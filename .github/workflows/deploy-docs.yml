@@ -21,8 +21,8 @@ jobs:
         uses: withastro/action@v3
         with:
             path: ./website
-            node-version: 20
-            package-manager: pnpm@latest
+            node-version: 25.2.1
+            package-manager: pnpm@9
 
   deploy:
     needs: build

@@ -101,7 +101,7 @@
         <!-- Firefox Steps -->
         <div
           id="steps-firefox"
-          class="steps-list flex flex-col gap-[70vh] pb-[70vh] w-full"
+          class="steps-list flex flex-col gap-[50vh] pb-[56vh] w-full"
         >
           <StepCard
             number="⏳"
