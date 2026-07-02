@@ -3,9 +3,9 @@ import { defineConfig } from 'wxt';
 // See https://wxt.dev/api/config.html
 export default defineConfig({
   modules: ['@wxt-dev/module-react'],
+  outDir: 'dist',
   manifest: {
     name: "WA+",
-    version: "1.0.0",
     description: "A professional tool to extract group participants and metadata seamlessly from WhatsApp Web.",
     permissions: ["activeTab", "scripting", "downloads"],
     content_security_policy: {

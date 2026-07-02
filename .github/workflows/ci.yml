@@ -42,7 +42,7 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: extension-build-node-25.2.1
-        path: "**/*.zip"
+        path: "dist/*.zip"
 
   release:
     needs: build
@@ -67,11 +67,16 @@ jobs:
     - name: Install dependencies
       run: pnpm install
       
+    - name: Set version from tag
+      run: |
+        TAG_NAME=${GITHUB_REF#refs/tags/v}
+        npm version $TAG_NAME --no-git-tag-version
+      
     - name: Build Extension Zip
       run: pnpm run zip
 
     - name: Publish GitHub Release
       uses: softprops/action-gh-release@v3
       with:
-        files: "**/*.zip"
+        files: "dist/*.zip"
         generate_release_notes: true
