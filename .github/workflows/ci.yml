@@ -1,15 +1,16 @@
-name: CI Build
+name: CI Build & Release
 
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [20.x, 22.x, 24.x]
@@ -36,3 +37,41 @@ jobs:
       
     - name: Build Extension Zip
       run: pnpm run zip
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: extension-build-node-${{ matrix.node-version }}
+        path: .output/*-chrome.zip
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    # Only run the release job if a tag starting with 'v' (e.g. v1.0.0) is pushed
+    if: startsWith(github.ref, 'refs/tags/v')
+    
+    steps:
+    - uses: actions/checkout@v7
+    
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v6
+      with:
+        version: 9
+        
+    - name: Use Node.js 22.x
+      uses: actions/setup-node@v6
+      with:
+        node-version: 22.x
+        cache: 'pnpm'
+        
+    - name: Install dependencies
+      run: pnpm install
+      
+    - name: Build Extension Zip
+      run: pnpm run zip
+
+    - name: Publish GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: .output/*-chrome.zip
+        generate_release_notes: true
