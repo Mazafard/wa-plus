@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { 
+	title, 
+	description = "A professional tool to extract group participants and metadata seamlessly from WhatsApp Web. Privacy-first, 100% local memory extraction with zero database lag." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+
+		<!-- SEO Meta Tags -->
+		<meta name="description" content={description} />
+		<meta name="keywords" content="whatsapp, whatsapp exporter, group participants, whatsapp extension, chrome extension, firefox extension, privacy, web scraping, wa+" />
+		<meta name="author" content="Mazafard" />
+		<meta name="robots" content="index, follow" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://mazafard.github.io/wa-plus/" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="Extract participants, phone numbers, and avatars directly from your active WhatsApp Web sessions. 100% local. Zero database lag. Maximum privacy." />
+		<meta property="og:image" content="https://mazafard.github.io/wa-plus/screenshot.png" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://mazafard.github.io/wa-plus/" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content="Extract participants, phone numbers, and avatars directly from your active WhatsApp Web sessions. 100% local. Zero database lag. Maximum privacy." />
+		<meta property="twitter:image" content="https://mazafard.github.io/wa-plus/screenshot.png" />
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="favicon.png" />
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet" />
+	</head>
+	<body>
+		<slot />
+		
+		<script is:inline>
+			// Dynamically calculate sticky top offset for tall curtain sections
+			function updateStickyOffsets() {
+				const vh = window.innerHeight;
+				
+				// Calculate offsets for all curtain sections
+				const sections = document.querySelectorAll('.curtain-section');
+				sections.forEach(section => {
+					const height = section.offsetHeight;
+					if (height > vh) {
+						section.style.top = `calc(100vh - ${height}px)`;
+					} else {
+						section.style.top = '0px';
+					}
+				});
+			}
+			
+			window.addEventListener('resize', updateStickyOffsets);
+			updateStickyOffsets();
+			window.addEventListener('load', updateStickyOffsets);
+		</script>
+	</body>
+</html>

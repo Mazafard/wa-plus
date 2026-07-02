@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #09090b;
+  --color-surface: rgba(24, 24, 27, 0.7);
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --font-inter: 'Inter', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+    width: 100%;
+  }
+
+  body {
+    font-family: var(--font-inter);
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    -webkit-font-smoothing: antialiased;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.05), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.05), transparent 25%);
+  }
+
+  h1, h2, h3, .logo {
+    font-family: var(--font-outfit);
+  }
+}
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Full Page Curtain Effect */
+.curtain-section {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    min-height: 100vh;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -20px 50px rgba(0,0,0,0.5); 
+    border-top: 1px solid rgba(255,255,255,0.05);
+    z-index: 10;
+}
+
+.curtain-section > .container {
+    width: 100%;
+}

@@ -1,0 +1,158 @@
+---
+
+---
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><line x1="18" y1="6" x2="6" y2="18"></line><line
+        x1="6"
+        y1="6"
+        x2="18"
+        y2="18"></line></svg
+    >
+  </button>
+  <a href="#hero" onclick="scrollToBouncing(event, 'hero')">Home</a>
+  <a href="#features" onclick="scrollToBouncing(event, 'features')">Features</a>
+  <a href="#how-it-works" onclick="scrollToBouncing(event, 'how-it-works')"
+    >How it Works</a
+  >
+  <a href="#download" onclick="scrollToBouncing(event, 'download')">Download</a>
+  <a
+    href="https://github.com/Mazafard/wa-plus"
+    target="_blank"
+    onclick="toggleMobileMenu()">Source Code</a
+  >
+  <div style="margin-top: 20px;">
+    <iframe
+      src="https://github.com/sponsors/Mazafard/button"
+      title="Sponsor Mazafard"
+      height="32"
+      width="114"
+      style="border: 0; border-radius: 6px;"></iframe>
+  </div>
+</div>
+
+<nav>
+  <a href="#hero" class="logo" onclick="scrollToBouncing(event, 'hero')">
+    <div class="logo-icon">WA</div>
+    WA+
+  </a>
+
+  <div class="desktop-menu">
+    <a href="#features" onclick="scrollToBouncing(event, 'features')"
+      >Features</a
+    >
+    <a href="#how-it-works" onclick="scrollToBouncing(event, 'how-it-works')"
+      >How it Works</a
+    >
+    <a href="#download" onclick="scrollToBouncing(event, 'download')"
+      >Download</a
+    >
+  </div>
+
+  <div class="nav-actions">
+    <!-- GitHub Sponsor Button -->
+    <iframe
+      src="https://github.com/sponsors/Mazafard/button"
+      title="Sponsor Mazafard"
+      height="32"
+      width="114"
+      style="border: 0; border-radius: 6px;"></iframe>
+
+    <a
+      href="https://github.com/Mazafard/wa-plus"
+      class="cta-button secondary"
+      style="padding: 8px 20px; font-size: 14px; border-radius: 8px;"
+      >Source Code</a
+    >
+  </div>
+
+  <button class="burger-menu" onclick="toggleMobileMenu()">
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><line x1="3" y1="12" x2="21" y2="12"></line><line
+        x1="3"
+        y1="6"
+        x2="21"
+        y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg
+    >
+  </button>
+</nav>
+
+<script is:inline>
+  function toggleMobileMenu() {
+    document.getElementById("mobileMenu").classList.toggle("active");
+  }
+
+  function scrollToBouncing(event, targetId) {
+    event.preventDefault();
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    // Push state to browser history to update URL path
+    if (history.pushState) {
+      history.pushState(null, null, "#" + targetId);
+    } else {
+      location.hash = "#" + targetId;
+    }
+
+    // Custom bouncing scroll animation
+    const targetPosition =
+      target.getBoundingClientRect().top + window.pageYOffset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = easeOutElastic(timeElapsed, startPosition, distance, 1200);
+      window.scrollTo(0, run);
+      if (timeElapsed < 1200) requestAnimationFrame(animation);
+    }
+
+    function easeOutElastic(t, b, c, d) {
+      let s = 1.70158;
+      let p = 0;
+      let a = c;
+      if (t == 0) return b;
+      if ((t /= d) == 1) return b + c;
+      if (!p) p = d * 0.3;
+      if (a < Math.abs(c)) {
+        a = c;
+        s = p / 4;
+      } else {
+        s = (p / (2 * Math.PI)) * Math.asin(c / a);
+      }
+      return (
+        a * Math.pow(2, -10 * t) * Math.sin(((t * d - s) * (2 * Math.PI)) / p) +
+        c +
+        b
+      );
+    }
+
+    requestAnimationFrame(animation);
+
+    // Close mobile menu if open
+    const mobileMenu = document.getElementById("mobileMenu");
+    if (mobileMenu && mobileMenu.classList.contains("active")) {
+      toggleMobileMenu();
+    }
+  }
+</script>

@@ -29,3 +29,6 @@ web-ext.config.ts
 PUBLISHING.md
 .output/*
 PUBLISHING_FIREFOX.md
+
+# Astro Output
+website/dist/
