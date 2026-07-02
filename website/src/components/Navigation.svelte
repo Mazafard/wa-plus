@@ -44,6 +44,10 @@
   }
 
   function scrollToSection(event, targetId) {
+    const isHomePage = window.location.pathname === "/wa-plus/" || window.location.pathname === "/wa-plus" || window.location.pathname === "/";
+    if (!isHomePage) {
+      return; // Allow standard navigation if on a subpage
+    }
     event.preventDefault();
     const target = document.getElementById(targetId);
     if (!target) return;
@@ -101,6 +105,7 @@
   <button
     class="absolute top-6 right-6 bg-transparent border-none text-text-main cursor-pointer p-2"
     on:click={toggleMobileMenu}
+    aria-label="Close mobile menu"
   >
     <svg
       width="32"
@@ -120,27 +125,27 @@
     >
   </button>
   <a
-    href="#hero"
+    href="/wa-plus/#hero"
     class="text-text-main no-underline text-2xl font-semibold font-outfit"
     on:click={(e) => scrollToSection(e, "hero")}>Home</a
   >
   <a
-    href="#features"
+    href="/wa-plus/#features"
     class="text-text-main no-underline text-2xl font-semibold font-outfit"
     on:click={(e) => scrollToSection(e, "features")}>Features</a
   >
   <a
-    href="#how-it-works"
+    href="/wa-plus/#how-it-works"
     class="text-text-main no-underline text-2xl font-semibold font-outfit"
     on:click={(e) => scrollToSection(e, "how-it-works")}>How it Works</a
   >
   <a
-    href="#faq"
+    href="/wa-plus/#faq"
     class="text-text-main no-underline text-2xl font-semibold font-outfit"
     on:click={(e) => scrollToSection(e, "faq")}>FAQ</a
   >
   <a
-    href="#download"
+    href="/wa-plus/#download"
     class="text-text-main no-underline text-2xl font-semibold font-outfit"
     on:click={(e) => scrollToSection(e, "download")}>Download</a
   >
@@ -186,7 +191,7 @@
   class="sticky top-0 z-[100] px-6 py-4 mx-auto mt-5 max-w-[1152px] flex justify-between items-center bg-zinc-950/70 backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
 >
   <a
-    href="#hero"
+    href="/wa-plus/#hero"
     class="logo text-2xl font-extrabold text-text-main no-underline flex items-center gap-3 tracking-tight"
     on:click={(e) => scrollToSection(e, "hero")}
   >
@@ -200,22 +205,22 @@
 
   <div class="hidden md:flex gap-8 items-center">
     <a
-      href="#features"
+      href="/wa-plus/#features"
       class="text-text-muted no-underline text-[15px] font-medium transition-colors duration-200 hover:text-text-main"
       on:click={(e) => scrollToSection(e, "features")}>Features</a
     >
     <a
-      href="#how-it-works"
+      href="/wa-plus/#how-it-works"
       class="text-text-muted no-underline text-[15px] font-medium transition-colors duration-200 hover:text-text-main"
       on:click={(e) => scrollToSection(e, "how-it-works")}>How it Works</a
     >
     <a
-      href="#faq"
+      href="/wa-plus/#faq"
       class="text-text-muted no-underline text-[15px] font-medium transition-colors duration-200 hover:text-text-main"
       on:click={(e) => scrollToSection(e, "faq")}>FAQ</a
     >
     <a
-      href="#download"
+      href="/wa-plus/#download"
       class="text-text-muted no-underline text-[15px] font-medium transition-colors duration-200 hover:text-text-main"
       on:click={(e) => scrollToSection(e, "download")}>Download</a
     >
@@ -265,6 +270,7 @@
   <button
     class="md:hidden bg-transparent border-none text-text-main cursor-pointer p-2"
     on:click={toggleMobileMenu}
+    aria-label="Open mobile menu"
   >
     <svg
       width="28"

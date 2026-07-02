@@ -46,7 +46,7 @@
       <div class="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-20 mb-12">
         <!-- Brand & Description -->
         <div class="flex-1 max-w-[400px]">
-          <a href="#hero" class="logo text-3xl font-extrabold text-text-main no-underline flex items-center gap-3 tracking-tight mb-4 transition-transform hover:scale-105">
+          <a href="/wa-plus/#hero" class="logo text-3xl font-extrabold text-text-main no-underline flex items-center gap-3 tracking-tight mb-4 transition-transform hover:scale-105" onclick="footerScroll(event, 'hero')">
             <div class="bg-gradient-to-br from-primary to-emerald-400 text-white w-10 h-10 rounded-lg flex items-center justify-center text-xl font-outfit shadow-[0_4px_12px_rgba(16,185,129,0.3)]">
               WA
             </div>
@@ -84,16 +84,16 @@
         <div class="flex gap-16 md:gap-24">
           <div class="flex flex-col gap-4">
             <h4 class="text-white font-semibold text-lg mb-2">Product</h4>
-            <a href="#features" class="text-text-muted no-underline hover:text-primary transition-colors text-sm">Features</a>
-            <a href="#how-it-works" class="text-text-muted no-underline hover:text-primary transition-colors text-sm">How it Works</a>
-            <a href="#faq" class="text-text-muted no-underline hover:text-primary transition-colors text-sm">FAQ</a>
-            <a href="#download" class="text-text-muted no-underline hover:text-primary transition-colors text-sm">Download</a>
+            <a href="/wa-plus/#features" class="text-text-muted no-underline hover:text-primary transition-colors text-sm" onclick="footerScroll(event, 'features')">Features</a>
+            <a href="/wa-plus/#how-it-works" class="text-text-muted no-underline hover:text-primary transition-colors text-sm" onclick="footerScroll(event, 'how-it-works')">How it Works</a>
+            <a href="/wa-plus/#faq" class="text-text-muted no-underline hover:text-primary transition-colors text-sm" onclick="footerScroll(event, 'faq')">FAQ</a>
+            <a href="/wa-plus/#download" class="text-text-muted no-underline hover:text-primary transition-colors text-sm" onclick="footerScroll(event, 'download')">Download</a>
           </div>
           
           <div class="flex flex-col gap-4">
             <h4 class="text-white font-semibold text-lg mb-2">Legal</h4>
-            <a href="privacy.html" class="text-text-muted no-underline hover:text-primary transition-colors text-sm">Privacy Policy</a>
-            <a href="https://github.com/Mazafard/wa-plus" target="_blank" class="text-text-muted no-underline hover:text-primary transition-colors text-sm">Terms of Service</a>
+            <a href="/wa-plus/privacy" class="text-text-muted no-underline hover:text-primary transition-colors text-sm">Privacy Policy</a>
+            <a href="/wa-plus/terms" class="text-text-muted no-underline hover:text-primary transition-colors text-sm">Terms of Service</a>
             <a href="https://github.com/Mazafard/wa-plus" target="_blank" class="text-text-muted no-underline hover:text-primary transition-colors text-sm">Source Code</a>
           </div>
         </div>
@@ -111,3 +111,55 @@
     </div>
   </footer>
 </section>
+
+<script is:inline>
+  function footerScroll(event, targetId) {
+    const isHomePage = window.location.pathname === "/wa-plus/" || window.location.pathname === "/wa-plus" || window.location.pathname === "/";
+    if (!isHomePage) {
+      return; // Allow standard navigation
+    }
+    event.preventDefault();
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    if (history.pushState) {
+      history.pushState(null, null, "#" + targetId);
+    } else {
+      location.hash = "#" + targetId;
+    }
+
+    const oldPosition = target.style.position;
+    target.style.position = "static";
+    const targetPosition =
+      target.getBoundingClientRect().top + window.pageYOffset;
+    target.style.position = oldPosition;
+
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+    const duration = 800;
+
+    function animation(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      let timeElapsed = currentTime - startTime;
+      if (timeElapsed > duration) timeElapsed = duration;
+
+      let t = timeElapsed / (duration / 2);
+      let run;
+      if (t < 1) {
+        run = (distance / 2) * t * t + startPosition;
+      } else {
+        t--;
+        run = (-distance / 2) * (t * (t - 2) - 1) + startPosition;
+      }
+
+      window.scrollTo(0, run);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    }
+
+    requestAnimationFrame(animation);
+  }
+</script>

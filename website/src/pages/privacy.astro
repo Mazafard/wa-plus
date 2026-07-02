@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.svelte';
+import Download from '../components/Download.astro';
+---
+
+<Layout title="Privacy Policy - WA+">
+  <div class="min-h-screen bg-bg-color text-text-main font-inter relative overflow-hidden">
+    <!-- Base Background Grid -->
+    <div class="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none -z-10"></div>
+    <div class="fixed top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-primary/10 to-transparent pointer-events-none -z-10"></div>
+    <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none -z-10"></div>
+
+    <Navigation client:load />
+
+    <main class="container mx-auto px-6 max-w-[800px] pt-32 pb-24">
+      <div class="bg-surface/50 border border-white/10 p-8 md:p-12 rounded-3xl shadow-xl backdrop-blur-sm">
+        <h1 class="text-4xl md:text-5xl font-extrabold font-outfit mb-4 text-white">Privacy Policy for WA+</h1>
+        <p class="text-text-muted mb-10"><strong>Effective Date:</strong> 2026</p>
+
+        <div class="prose-custom">
+          <p>WA+ ("the Extension") is committed to protecting your privacy and ensuring your data remains completely secure. This Privacy Policy outlines how the Extension handles your information.</p>
+
+          <h2>1. Data Collection & Usage</h2>
+          <p><strong>We do not collect, transmit, store, or sell any personal data.</strong></p>
+          <p>The Extension operates strictly on a "local-first" architecture. All data extraction, processing, and formatting of WhatsApp Web participant lists occur entirely within the boundaries of your local machine and your browser's execution context.</p>
+          <ul>
+            <li><strong>Participant Data:</strong> Phone numbers, names, and admin statuses are extracted directly from your active WhatsApp Web session's local <code>IndexedDB</code> database.</li>
+            <li><strong>Exporting:</strong> When you download a CSV or JSON file, the file is generated locally by your browser. At no point is this data sent to any external server, API, or third-party service.</li>
+          </ul>
+
+          <h2>2. Permissions Justification</h2>
+          <p>To function properly, the Extension requires the following Chrome permissions, all of which are used strictly for local operations:</p>
+          <ul>
+            <li><strong><code>activeTab</code></strong>: Required to identify and interact with the currently active WhatsApp Web tab.</li>
+            <li><strong><code>scripting</code></strong>: Required to execute the data extraction script directly within the WhatsApp Web page context. This is necessary to securely access the local IndexedDB instance.</li>
+            <li><strong><code>downloads</code></strong>: Required to generate and save the exported CSV or JSON files directly to your computer's local filesystem.</li>
+          </ul>
+
+          <h2>3. Third-Party Access</h2>
+          <p>Because the Extension does not collect or transmit data, no third parties have access to your WhatsApp information through this Extension.</p>
+
+          <h2>4. Changes to this Policy</h2>
+          <p>If we modify this Privacy Policy, we will update the "Effective Date" at the top of this document. We encourage you to review it periodically.</p>
+
+          <h2>5. Contact Us</h2>
+          <p>If you have any questions or concerns regarding this Privacy Policy, please open an issue on our <a href="https://github.com/Mazafard/wa-plus/issues" target="_blank" rel="noopener noreferrer">GitHub Repository</a>.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <Download />
+</Layout>
+
+<style>
+  .prose-custom h2 {
+    font-size: 1.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  .prose-custom p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #a1a1aa;
+    font-size: 1.05rem;
+  }
+  .prose-custom ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #a1a1aa;
+    line-height: 1.7;
+  }
+  .prose-custom li {
+    margin-bottom: 0.75rem;
+  }
+  .prose-custom strong {
+    color: #e4e4e7;
+    font-weight: 600;
+  }
+  .prose-custom code {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    color: #10b981;
+  }
+  .prose-custom a {
+    color: #10b981;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .prose-custom a:hover {
+    color: #34d399;
+    text-decoration: underline;
+  }
+</style>

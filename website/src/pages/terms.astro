@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.svelte';
+import Download from '../components/Download.astro';
+---
+
+<Layout title="Terms of Service - WA+">
+  <div class="min-h-screen bg-bg-color text-text-main font-inter relative overflow-hidden">
+    <!-- Base Background Grid -->
+    <div class="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none -z-10"></div>
+    <div class="fixed top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-primary/10 to-transparent pointer-events-none -z-10"></div>
+    <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none -z-10"></div>
+
+    <Navigation client:load />
+
+    <main class="container mx-auto px-6 max-w-[800px] pt-32 pb-24">
+      <div class="bg-surface/50 border border-white/10 p-8 md:p-12 rounded-3xl shadow-xl backdrop-blur-sm">
+        <h1 class="text-4xl md:text-5xl font-extrabold font-outfit mb-4 text-white">Terms of Service</h1>
+        <p class="text-text-muted mb-10"><strong>Effective Date:</strong> 2026</p>
+
+        <div class="prose-custom">
+          <p>By downloading, installing, or using the WA+ Chrome Extension ("the Extension"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Extension.</p>
+
+          <h2>1. Description of Service</h2>
+          <p>WA+ is a browser extension designed to extract and format participant data from WhatsApp Web groups locally within the user's browser. The Extension is provided "as is" and acts solely as a utility for data that you already have legitimate access to via your own WhatsApp account.</p>
+
+          <h2>2. Acceptable Use</h2>
+          <p>You agree to use the Extension in compliance with all applicable local, state, national, and international laws, rules, and regulations.</p>
+          <ul>
+            <li>You must have explicit permission to extract and process data from the groups you are targeting.</li>
+            <li>You agree not to use the Extension for spamming, harassment, illegal data scraping, or violating the privacy of others.</li>
+            <li>You are solely responsible for ensuring your use of the Extension complies with WhatsApp's Terms of Service.</li>
+          </ul>
+
+          <h2>3. Intellectual Property</h2>
+          <p>The Extension is open-source and provided under the MIT License. You may modify or distribute the source code in accordance with the terms of the license available in our <a href="https://github.com/Mazafard/wa-plus" target="_blank" rel="noopener noreferrer">GitHub repository</a>.</p>
+
+          <h2>4. Disclaimer of Warranties</h2>
+          <p><strong>The Extension is provided "AS IS", without warranty of any kind.</strong> We make no guarantees regarding the reliability, accuracy, or continuous availability of the Extension. Because the Extension relies on the underlying structure of WhatsApp Web, updates to WhatsApp may cause the Extension to temporarily or permanently stop functioning.</p>
+
+          <h2>5. Limitation of Liability</h2>
+          <p>In no event shall the developers or maintainers of WA+ be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, loss of data, loss of account access, or business interruption) arising out of the use or inability to use the Extension.</p>
+
+          <h2>6. Changes to Terms</h2>
+          <p>We reserve the right to modify these Terms of Service at any time. Continued use of the Extension following any changes constitutes your acceptance of the new terms.</p>
+
+          <h2>7. Contact</h2>
+          <p>If you have any questions regarding these Terms, please open an issue on our <a href="https://github.com/Mazafard/wa-plus/issues" target="_blank" rel="noopener noreferrer">GitHub Repository</a>.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <Download />
+</Layout>
+
+<style>
+  .prose-custom h2 {
+    font-size: 1.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  .prose-custom p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #a1a1aa;
+    font-size: 1.05rem;
+  }
+  .prose-custom ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #a1a1aa;
+    line-height: 1.7;
+  }
+  .prose-custom li {
+    margin-bottom: 0.75rem;
+  }
+  .prose-custom strong {
+    color: #e4e4e7;
+    font-weight: 600;
+  }
+  .prose-custom code {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    color: #10b981;
+  }
+  .prose-custom a {
+    color: #10b981;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .prose-custom a:hover {
+    color: #34d399;
+    text-decoration: underline;
+  }
+</style>
