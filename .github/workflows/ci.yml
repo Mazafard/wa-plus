@@ -42,7 +42,7 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: extension-build-node-25.2.1
-        path: .output/*.zip
+        path: "**/*.zip"
 
   release:
     needs: build
@@ -73,5 +73,5 @@ jobs:
     - name: Publish GitHub Release
       uses: softprops/action-gh-release@v3
       with:
-        files: .output/*.zip
+        files: "**/*.zip"
         generate_release_notes: true
