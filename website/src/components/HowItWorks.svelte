@@ -50,12 +50,12 @@
         <!-- Chrome Steps -->
         <div
           id="steps-chrome"
-          class="steps-list flex flex-col gap-[70vh] pb-[120vh] w-full"
+          class="steps-list flex flex-col gap-[50vh] pb-[56vh] w-full"
         >
           <StepCard
             number="1"
             title="Install the Extension"
-            top="120px"
+            top="100px"
             zIndex="10"
           >
             Download WA+ from the <a
@@ -80,7 +80,7 @@
             > and log in by scanning the QR code with your phone.
           </StepCard>
 
-          <StepCard number="3" title="Open a Group" top="160px" zIndex="12">
+          <StepCard number="3" title="Open a Group" top="180px" zIndex="12">
             Click on the group chat you want to extract participants from. Then,
             click on the header of the group to open the group info sidebar.
           </StepCard>
@@ -88,7 +88,7 @@
           <StepCard
             number="4"
             title="Fetch Participants"
-            top="180px"
+            top="220px"
             zIndex="13"
           >
             Click the WA+ extension icon in your browser toolbar, then click <strong
