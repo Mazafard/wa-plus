@@ -14,9 +14,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x, 22.x, 24.x]
 
     steps:
     - uses: actions/checkout@v7
@@ -26,10 +23,10 @@ jobs:
       with:
         version: 9
         
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 25.2.1
       uses: actions/setup-node@v6
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 25.2.1
         cache: 'pnpm'
         
     - name: Install dependencies
@@ -42,9 +39,9 @@ jobs:
       run: pnpm run zip
 
     - name: Upload Build Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
-        name: extension-build-node-${{ matrix.node-version }}
+        name: extension-build-node-25.2.1
         path: .output/*.zip
 
   release:
@@ -61,10 +58,10 @@ jobs:
       with:
         version: 9
         
-    - name: Use Node.js 22.x
+    - name: Use Node.js 25.2.1
       uses: actions/setup-node@v6
       with:
-        node-version: 22.x
+        node-version: 25.2.1
         cache: 'pnpm'
         
     - name: Install dependencies
@@ -74,7 +71,7 @@ jobs:
       run: pnpm run zip
 
     - name: Publish GitHub Release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v3
       with:
         files: .output/*.zip
         generate_release_notes: true
