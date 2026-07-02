@@ -33,15 +33,14 @@ pnpm install
 ```bash
 pnpm run build
 ```
-This command compiles the React code and generates the final extension inside the `.output/chrome-mv3/` folder.
+This command compiles the React code and generates the final extension inside the `dist/chrome-mv3/` folder.
 
 ### 4. Load into Chrome
 1. Open Chrome and navigate to `chrome://extensions/`.
 2. Toggle **Developer Mode** on (top right corner).
 3. Click **Load unpacked** (top left).
-4. Select the `.output/chrome-mv3/` folder generated in the previous step.
+4. Select the `dist/chrome-mv3/` folder generated in the previous step.
 5. Pin the WA+ extension to your toolbar!
-
 ## Development
 
 To spin up the local development environment with instant Hot Module Replacement (HMR):
@@ -52,14 +51,19 @@ pnpm run dev
 
 This will automatically launch a sandboxed instance of Chrome with the extension pre-loaded. Any changes you make to `App.tsx` or the extraction utilities will instantly reflect in the extension without needing to manually reload it.
 
-## Packaging for Chrome Web Store
+## Packaging for Web Stores (Mozilla Reviewers)
 
 To generate a production-ready `.zip` file for publishing to the Chrome Web Store:
-
 ```bash
 pnpm run zip
 ```
-The zip file will be generated in the `.output/` directory (e.g., `.output/wa-plus-1.0.0-chrome.zip`).
+The zip file will be generated in the `dist/` directory (e.g., `dist/wa-plus-1.1.5-chrome.zip`).
+
+To generate the `.zip` file for Mozilla Firefox:
+```bash
+pnpm run zip:firefox
+```
+The zip file will be generated in the `dist/` directory (e.g., `dist/wa-plus-1.1.5-firefox.zip`). This step perfectly reproduces the exact compiled files submitted to the Mozilla Add-ons Store.
 
 ## License
 
