@@ -2,8 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.svelte';
 import Hero from '../components/Hero.astro';
+import Testimonials from '../components/Testimonials.svelte';
 import Features from '../components/Features.svelte';
 import HowItWorks from '../components/HowItWorks.svelte';
+import FAQ from '../components/FAQ.svelte';
 import Download from '../components/Download.astro';
 import ScrollIndicator from '../components/ScrollIndicator.svelte';
 ---
@@ -12,7 +14,9 @@ import ScrollIndicator from '../components/ScrollIndicator.svelte';
 	<Navigation client:load />
 	<ScrollIndicator client:idle />
 	<Hero />
+	<Testimonials client:visible />
 	<Features client:visible />
 	<HowItWorks client:visible />
+	<FAQ client:visible />
 	<Download />
 </Layout>

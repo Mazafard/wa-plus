@@ -12,10 +12,10 @@
     class="container how-it-works py-[100px] text-center w-full max-w-[1200px]"
   >
     <div class="section-header mb-[60px]">
-      <h2 class="text-[48px] mt-24 mb-4 tracking-[-1px]">
-        How to extract your first group
+      <h2 class="text-[48px] mt-24 mb-4 tracking-[-1px] font-extrabold text-white">
+        How it works
       </h2>
-      <p class="text-xl text-text-muted">Get started in less than a minute.</p>
+      <p class="text-xl text-text-muted">From installation to extraction in four simple steps.</p>
     </div>
 
     <div class="browser-tabs flex justify-center gap-4 mb-10">

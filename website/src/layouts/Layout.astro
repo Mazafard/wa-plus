@@ -51,11 +51,8 @@ const {
 		<slot />
 		
 		<script is:inline>
-			// Dynamically calculate sticky top offset for tall curtain sections
 			function updateStickyOffsets() {
 				const vh = window.innerHeight;
-				
-				// Calculate offsets for all curtain sections
 				const sections = document.querySelectorAll('.curtain-section');
 				sections.forEach(section => {
 					const height = section.offsetHeight;
@@ -67,9 +64,19 @@ const {
 				});
 			}
 			
+			// Use ResizeObserver to automatically update offsets when sections change height (like FAQ accordions)
+			const observer = new ResizeObserver(() => {
+				updateStickyOffsets();
+			});
+			
+			// Initial setup on load
+			window.addEventListener('DOMContentLoaded', () => {
+				const sections = document.querySelectorAll('.curtain-section');
+				sections.forEach(section => observer.observe(section));
+				updateStickyOffsets();
+			});
+			
 			window.addEventListener('resize', updateStickyOffsets);
-			updateStickyOffsets();
-			window.addEventListener('load', updateStickyOffsets);
 		</script>
 	</body>
 </html>

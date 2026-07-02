@@ -10,6 +10,13 @@
 
 <section class="curtain-section z-[2] mt-[60vh]" id="features">
     <div class="container features-wrapper relative py-[100px] w-full max-w-[1200px]">
+        <div class="text-center mb-[60px]">
+            <h2 class="text-[48px] mb-4 tracking-[-1px] font-extrabold text-white">
+                Powerful features, built for privacy
+            </h2>
+            <p class="text-xl text-text-muted">Everything you need to extract and manage your WhatsApp groups.</p>
+        </div>
+
         <button class="slider-btn prev absolute left-[-20px] top-1/2 -translate-y-1/2 bg-surface border border-border-subtle w-12 h-12 rounded-full flex items-center justify-center text-text-main cursor-pointer z-10 hover:bg-white hover:text-bg-color hover:scale-110 transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)] md:left-2" on:click={() => scrollFeatures(-1)} aria-label="Previous Feature">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
