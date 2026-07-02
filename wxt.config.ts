@@ -10,7 +10,10 @@ export default defineConfig({
     browser_specific_settings: {
       gecko: {
         id: "wa-plus@fard.pt",
-        strict_min_version: "109.0"
+        strict_min_version: "109.0",
+        data_collection_permissions: {
+          required: ["none"]
+        }
       }
     },
     permissions: ["activeTab", "scripting", "downloads"],
