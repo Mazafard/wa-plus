@@ -1,5 +1,12 @@
 # WA+ (WhatsApp Plus Exporter)
 
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fkhdjggogknhlhaopaameedhchhoomhm.svg?label=Chrome%20Web%20Store&color=blue)](https://chromewebstore.google.com/detail/wa+/fkhdjggogknhlhaopaameedhchhoomhm)
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/fkhdjggogknhlhaopaameedhchhoomhm.svg?color=success)](https://chromewebstore.google.com/detail/wa+/fkhdjggogknhlhaopaameedhchhoomhm)
+[![CI Build Status](https://github.com/Mazafard/wa-plus/actions/workflows/ci.yml/badge.svg)](https://github.com/Mazafard/wa-plus/actions/workflows/ci.yml)
+[![WXT Framework](https://img.shields.io/badge/Built%20with-WXT-2B90B6.svg)](https://wxt.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 A privacy-focused, highly optimized Chrome Extension that extracts participant data (phone numbers, names, and admin status) directly from active WhatsApp Web groups. Built entirely with the [WXT Framework](https://wxt.dev/) and React, WA+ bypasses traditional DOM-scraping limitations by tapping securely into the Main World execution context to interface with internal WhatsApp Webpack modules.
 
 ## Features
