@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | WA+</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface: #1e293b;
+            --primary: #22c55e;
+            --primary-hover: #16a34a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            background: var(--primary);
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-top: 40px;
+            color: var(--primary);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 10px;
+        }
+
+        p, ul, li {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: var(--text-main);
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 80px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">WA</div>
+                WA+
+            </a>
+            <a href="https://github.com/Mazafard/WA_Plus" style="color: var(--text-muted);">View on GitHub</a>
+        </nav>
+
+        <div class="content">
+            <h1>Privacy Policy for WA+</h1>
+            <p><strong>Effective Date:</strong> 2026</p>
+            <p>WA+ ("the Extension") is committed to protecting your privacy and ensuring your data remains completely secure. This Privacy Policy outlines how the Extension handles your information.</p>
+
+            <h2>1. Data Collection & Usage</h2>
+            <p><strong>We do not collect, transmit, store, or sell any personal data.</strong></p>
+            <p>The Extension operates strictly on a "local-first" architecture. All data extraction, processing, and formatting of WhatsApp Web participant lists occur entirely within the boundaries of your local machine and your browser's execution context.</p>
+            <ul>
+                <li><strong>Participant Data:</strong> Phone numbers, names, and admin statuses are extracted directly from your active WhatsApp Web session's local IndexedDB database or live memory tree.</li>
+                <li><strong>Exporting:</strong> When you download a CSV or JSON file, the file is generated locally by your browser. At no point is this data sent to any external server, API, or third-party service.</li>
+            </ul>
+
+            <h2>2. Permissions Justification</h2>
+            <p>To function properly, the Extension requires the following Chrome permissions, all of which are used strictly for local operations:</p>
+            <ul>
+                <li><strong><code>activeTab</code></strong>: Required to identify and interact with the currently active WhatsApp Web tab.</li>
+                <li><strong><code>scripting</code></strong>: Required to execute the data extraction script directly within the WhatsApp Web page context. This is necessary to securely access the local IndexedDB instance.</li>
+                <li><strong><code>downloads</code></strong>: Required to generate and save the exported CSV or JSON files directly to your computer's local filesystem.</li>
+            </ul>
+
+            <h2>3. Third-Party Access</h2>
+            <p>Because the Extension does not collect or transmit data, no third parties have access to your WhatsApp information through this Extension.</p>
+
+            <h2>4. Changes to this Policy</h2>
+            <p>If we modify this Privacy Policy, we will update the "Effective Date" at the top of this document. We encourage you to review it periodically.</p>
+
+            <h2>5. Contact Us</h2>
+            <p>If you have any questions or concerns regarding this Privacy Policy, please open an issue on our <a href="https://github.com/Mazafard/WA_Plus/issues">GitHub Repository</a>.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 WA+ Extension. Not affiliated with WhatsApp Inc.</p>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="https://github.com/Mazafard/WA_Plus">Source Code</a>
+        </div>
+    </footer>
+</body>
+</html>
