@@ -16,6 +16,11 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+        
+      - name: Create dummy .wxt/tsconfig.json to prevent Vite crash
+        run: |
+          mkdir -p .wxt
+          echo "{}" > .wxt/tsconfig.json
       
       - name: Install, build, and upload your site
         uses: withastro/action@v3
