@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.5] - 2026-07-02
+### Fixed
+- Fixed Mozilla validation errors by adding `data_collection_permissions: ["none"]` to the Firefox manifest.
+- Resolved a Firefox manifest warning by removing an incorrectly sized `96.png` icon file.
+
 ## [1.1.4] - 2026-07-02
 ### Added
 - Added support for Mozilla Firefox (configured `gecko.id` in manifest).
