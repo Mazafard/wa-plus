@@ -35,8 +35,11 @@ jobs:
     - name: Typecheck
       run: pnpm run compile
       
-    - name: Build Extension Zip
+    - name: Build Chrome Extension Zip
       run: pnpm run zip
+
+    - name: Build Firefox Extension Zip
+      run: pnpm run zip:firefox
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v7
@@ -72,8 +75,11 @@ jobs:
         TAG_NAME=${GITHUB_REF#refs/tags/v}
         npm version $TAG_NAME --no-git-tag-version --allow-same-version || true
       
-    - name: Build Extension Zip
+    - name: Build Chrome Extension Zip
       run: pnpm run zip
+
+    - name: Build Firefox Extension Zip
+      run: pnpm run zip:firefox
 
     - name: Publish GitHub Release
       uses: softprops/action-gh-release@v3

@@ -7,6 +7,12 @@ export default defineConfig({
   manifest: {
     name: "WA+",
     description: "A professional tool to extract group participants and metadata seamlessly from WhatsApp Web.",
+    browser_specific_settings: {
+      gecko: {
+        id: "wa-plus@fard.pt",
+        strict_min_version: "109.0"
+      }
+    },
     permissions: ["activeTab", "scripting", "downloads"],
     content_security_policy: {
       extension_pages: "script-src 'self'; object-src 'self'; img-src 'self' data: https://*.whatsapp.net https://*.fbcdn.net;"
